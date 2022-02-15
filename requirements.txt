@@ -1,0 +1,62 @@
+# general
+pandas
+jupyter
+numpy
+sklearn
+tqdm>=4.62.2
+seaborn
+matplotlib
+pyyaml
+# >=0.23.1
+scikit-learn 
+fire
+
+# data accusition & preprocessing
+pyarrow>=1.0.0
+requests
+smart-open
+
+# torch==1.8.1+cu111
+# installs 1.8.1+cu102 by default!
+#torch==1.8.1
+torch==1.8.1+cu111
+
+transformers==4.5.1
+datasets>=1.5.0
+wandb==0.12.2
+
+allennlp==0.9.0
+#allennlp==1.0.0
+#allennlp
+#git+https://github.com/ibeltagy/allennlp.git@fp16_v0.9.0#egg=allennlp
+
+# see https://github.com/allenai/allennlp/issues/5191
+overrides==3.1.0
+
+annoy==1.17.0
+faiss-gpu==1.7.1
+
+torchbiggraph
+h5py==2.10.0
+networkx==2.5
+sentence-transformers
+
+# scidocs (custom fork)
+#git+https://github.com/allenai/scidocs.git
+git+https://github.com/malteos/scidocs.git
+
+sklearn-contrib-lightning
+jsonlines
+pytrec_eval
+awscli
+
+
+gensim
+#karateclub
+
+# wiki
+##wikiextractor==3.0.4 ## use gensim instead
+
+wikimapper==0.1.5
+
+six>=1.16.0
