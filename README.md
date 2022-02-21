@@ -1,7 +1,7 @@
 # SciNCL: Neighborhood Contrastive Learning for Scientific Document Representations with Citation Embeddings
 
 Supplemental materials for our preprint [Neighborhood Contrastive Learning for Scientific Document Representations with Citation Embeddings (PDF available on ArXiv)](http://arxiv.org/abs/2202.06671).
-Trained models and datasets will be made available as GitHub releases and on Huggingface model hub.
+Trained models and datasets will be made available as GitHub releases and on [Huggingface model hub](https://huggingface.co/malteos/scincl).
 
 ## Requirements
 
@@ -33,7 +33,52 @@ pip install --find-links https://download.pytorch.org/whl/torch_stable.html torc
 python -m spacy download en_core_web_sm
 ```
 
-## Data preparations
+## How to use the pretrained model
+
+```python
+from transformers import AutoTokenizer, AutoModel
+
+# load model and tokenizer
+tokenizer = AutoTokenizer.from_pretrained('malteos/scincl')
+model = AutoModel.from_pretrained('malteos/scincl')
+
+papers = [{'title': 'BERT', 'abstract': 'We introduce a new language representation model called BERT'},
+          {'title': 'Attention is all you need', 'abstract': ' The dominant sequence transduction models are based on complex recurrent or convolutional neural networks'}]
+
+# concatenate title and abstract with [SEP] token
+title_abs = [d['title'] + tokenizer.sep_token + (d.get('abstract') or '') for d in papers]
+
+# preprocess the input
+inputs = tokenizer(title_abs, padding=True, truncation=True, return_tensors="pt", max_length=512)
+
+# inference
+result = model(**inputs)
+
+# take the first token ([CLS] token) in the batch as the embedding
+embeddings = result.last_hidden_state[:, 0, :]
+```
+
+
+## SciDocs Results
+
+The uploaded model weights are the ones that yielded the best results on SciDocs (`seed=4`).
+In the paper we report the SciDocs results as mean over ten seeds.
+
+| **model**         | **mag-f1** | **mesh-f1** | **co-view-map** | **co-view-ndcg** | **co-read-map** | **co-read-ndcg** | **cite-map** | **cite-ndcg** | **cocite-map** | **cocite-ndcg** | **recomm-ndcg** | **recomm-P@1** | **Avg** |
+|-------------------|-----------:|------------:|----------------:|-----------------:|----------------:|-----------------:|-------------:|--------------:|---------------:|----------------:|----------------:|---------------:|--------:|
+| Doc2Vec           |       66.2 |        69.2 |            67.8 |             82.9 |            64.9 |             81.6 |         65.3 |          82.2 |           67.1 |            83.4 |            51.7 |           16.9 |    66.6 |
+| fasttext-sum      |       78.1 |        84.1 |            76.5 |             87.9 |            75.3 |             87.4 |         74.6 |          88.1 |           77.8 |            89.6 |            52.5 |             18 |    74.1 |
+| SGC               |       76.8 |        82.7 |            77.2 |               88 |            75.7 |             87.5 |         91.6 |          96.2 |           84.1 |            92.5 |            52.7 |           18.2 |    76.9 |
+| SciBERT           |       79.7 |        80.7 |            50.7 |             73.1 |            47.7 |             71.1 |         48.3 |          71.7 |           49.7 |            72.6 |            52.1 |           17.9 |    59.6 |
+| SPECTER           |         82 |        86.4 |            83.6 |             91.5 |            84.5 |             92.4 |         88.3 |          94.9 |           88.1 |            94.8 |            53.9 |             20 |      80 |
+| SciNCL (10 seeds) |       81.4 |        88.7 |            85.3 |             92.3 |            87.5 |             93.9 |         93.6 |          97.3 |           91.6 |            96.4 |            53.9 |           19.3 |    81.8 |
+| **SciNCL (seed=4)**   |       81.2 |        89.0 |            85.3 |             92.2 |            87.7 |             94.0 |         93.6 |          97.4 |           91.7 |            96.5 |            54.3 |           19.6 |    81.9 |
+
+Additional evaluations are available in the paper.
+
+## Reproduce experiments
+
+### Data preparations
 
 Download
 - [S2ORC 20200705v1](https://github.com/allenai/s2orc)
@@ -120,7 +165,7 @@ python cli_s2orc.py get_citations ${S2ORC_METADATA_DIR} ./data/biggraph/s2orc_wi
     --excluded_paper_ids data/scidocs_s2orc/s2orc_paper_ids.json  
 ```
 
-## Training corpus
+### Training corpus
 
 ```bash
 # Replicated SPECTER data (w/ leakage)
@@ -145,7 +190,7 @@ python cli_triples.py get_specter_like_triples \
      
 ```
 
-## Citation graph embeddings
+### Citation graph embeddings
 
 Select config file:
 ```bash
@@ -184,7 +229,7 @@ taskset -c 10-59 torchbiggraph_train ${BIGGRAPH_CONFIG} \
 
 ```
 
-## kNN search index
+### kNN search index
 
 To retrieve positve and negative samples from the citation neighborhood, 
 we use either k nearest neighbor search or cosine similarity threshold search.
@@ -209,7 +254,7 @@ python cli_graph.py build_faiss ${S2ORC_EMBEDDINGS} \
 ```
 
 
-## Contrastive language model
+### Contrastive language model
 
 Our full pipeline can be run within a standard Python environment or as Slurm job. Set `PY` variable following accordingly:
 ```
