@@ -1,7 +1,7 @@
 # SciNCL: Neighborhood Contrastive Learning for Scientific Document Representations with Citation Embeddings
 
 Supplemental materials for our preprint [Neighborhood Contrastive Learning for Scientific Document Representations with Citation Embeddings (PDF available on ArXiv)](http://arxiv.org/abs/2202.06671).
-Trained models and datasets will be made available as GitHub releases and on [Huggingface model hub](https://huggingface.co/malteos/scincl).
+Trained models and datasets are available as [GitHub release files](https://github.com/malteos/scincl/releases) and on [Huggingface model hub](https://huggingface.co/malteos/scincl).
 
 ## Requirements
 
