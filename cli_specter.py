@@ -54,7 +54,7 @@ def extract_triples(
 
     logger.info(f'Parsing {pickle_path}')
 
-    from gdt.datasets.specter_dataset import DataReaderFromPickled
+    from gdt.datasets.specter import DataReaderFromPickled
 
     datareaderfp = DataReaderFromPickled(max_sequence_length=512)
     data_instances = datareaderfp._read(pickle_path)
