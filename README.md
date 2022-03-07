@@ -192,6 +192,13 @@ python cli_triples.py get_specter_like_triples \
 
 ### Citation graph embeddings
 
+#### Download citation embeddings
+
+- Replicated SPECTER (w/ leakage): [Pretrained embeddings (H5; 150 GB)](https://static.openlegaldata.io/scincl/s2orc_with_specter_without_scidocs/embeddings_paper_id_0.v200.h5), [paper IDs (JSON)](https://static.openlegaldata.io/scincl/s2orc_with_specter_without_scidocs/entity_names_paper_id_0.json)
+- Random S2ORC (w/o leakage): [Pretrained embeddings (H5; 150 GB)](https://static.openlegaldata.io/scincl/s2orc_without_scidocs/embeddings_paper_id_0.v200.h5), [paper IDs (JSON)](https://static.openlegaldata.io/scincl/s2orc_without_scidocs/entity_names_paper_id_0.json)
+
+#### Train citation embedding model
+
 Select config file:
 ```bash
 # or other config files
