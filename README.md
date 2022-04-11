@@ -84,6 +84,8 @@ Download
 - [S2ORC 20200705v1](https://github.com/allenai/s2orc)
 - SPECTER's original training data: [train.pickle](https://ai2-s2-research-public.s3-us-west-2.amazonaws.com/specter/training-data/train.pkl) (see [here](https://github.com/allenai/specter/issues/2))
 - [SciDocs evaluation benchmark](https://github.com/allenai/scidocs)
+- Replicated SPECTER w/o leakage: [Pretrained weights and paper ID triples](https://huggingface.co/malteos/specter-wol)
+
 
 Set the following environment variables accordingly:
 ```bash
