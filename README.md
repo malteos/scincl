@@ -304,6 +304,19 @@ Evaluation results are reported to [Weights & Biases](https://wandb.com) or stor
 
 The individual pipeline steps can be run separately or reused to save compute time by setting corresponding arguments (e.g., `--skip-triples`).
 
+## How to cite
+
+If you are using our code or data, please cite [our paper](https://arxiv.org/abs/2202.06671):
+
+```bibtex
+@article{Ostendorff2022scincl,
+  title={Neighborhood Contrastive Learning for Scientific Document Representations with Citation Embeddings},
+  author={Ostendorff, Malte and Rethmeier, Nils and Augenstein, Isabelle and Gipp, Bela and Rehm, Georg},
+  journal={arXiv preprint arXiv:2202.06671},
+  year={2022}
+}
+```
+
 ## License
 
 MIT
