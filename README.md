@@ -1,7 +1,14 @@
 # SciNCL: Neighborhood Contrastive Learning for Scientific Document Representations with Citation Embeddings
+	
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/neighborhood-contrastive-learning-for-1/representation-learning-on-scidocs)](https://paperswithcode.com/sota/representation-learning-on-scidocs?p=neighborhood-contrastive-learning-for-1)
 
 Supplemental materials for our preprint [Neighborhood Contrastive Learning for Scientific Document Representations with Citation Embeddings (PDF available on ArXiv)](http://arxiv.org/abs/2202.06671).
 Trained models and datasets are available as [GitHub release files](https://github.com/malteos/scincl/releases) and on [Huggingface model hub](https://huggingface.co/malteos/scincl).
+
+> Learning scientific document representations can be substantially improved through contrastive learning objectives, where the challenge lies in creating positive and negative training samples that encode the desired similarity semantics. Prior work relies on discrete citation relations to generate contrast samples. However, discrete citations enforce a hard cut-off to similarity. This is counter-intuitive to similarity-based learning, and ignores that scientific papers can be very similar despite lacking a direct citation - a core problem of finding related research. Instead, we use controlled nearest neighbor sampling over citation graph embeddings for contrastive learning. This control allows us to learn continuous similarity, to sample hard-to-learn negatives and positives, and also to avoid collisions between negative and positive samples by controlling the sampling margin between them. The resulting method SciNCL outperforms the state-of-the-art on the SciDocs benchmark. Furthermore, we demonstrate that it can train (or tune) models sample-efficiently, and that it can be combined with recent training-efficient methods. Perhaps surprisingly, even training a general-domain language model this way outperforms baselines pretrained in-domain. 
+
+<img width="411" alt="fig1" src="https://user-images.githubusercontent.com/7977470/175907312-a91943cc-70e7-4001-a1cc-810265bd8e3f.png">
+
 
 ## Requirements
 
