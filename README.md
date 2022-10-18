@@ -2,7 +2,7 @@
 	
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/neighborhood-contrastive-learning-for-1/representation-learning-on-scidocs)](https://paperswithcode.com/sota/representation-learning-on-scidocs?p=neighborhood-contrastive-learning-for-1)
 
-Supplemental materials for our preprint [Neighborhood Contrastive Learning for Scientific Document Representations with Citation Embeddings (PDF available on ArXiv)](http://arxiv.org/abs/2202.06671).
+Supplemental materials for [Neighborhood Contrastive Learning for Scientific Document Representations with Citation Embeddings (EMNLP2022 paper, PDF available on ArXiv)](http://arxiv.org/abs/2202.06671).
 Trained models and datasets are available as [GitHub release files](https://github.com/malteos/scincl/releases) and on [Huggingface model hub](https://huggingface.co/malteos/scincl).
 
 > Learning scientific document representations can be substantially improved through contrastive learning objectives, where the challenge lies in creating positive and negative training samples that encode the desired similarity semantics. Prior work relies on discrete citation relations to generate contrast samples. However, discrete citations enforce a hard cut-off to similarity. This is counter-intuitive to similarity-based learning, and ignores that scientific papers can be very similar despite lacking a direct citation - a core problem of finding related research. Instead, we use controlled nearest neighbor sampling over citation graph embeddings for contrastive learning. This control allows us to learn continuous similarity, to sample hard-to-learn negatives and positives, and also to avoid collisions between negative and positive samples by controlling the sampling margin between them. The resulting method SciNCL outperforms the state-of-the-art on the SciDocs benchmark. Furthermore, we demonstrate that it can train (or tune) models sample-efficiently, and that it can be combined with recent training-efficient methods. Perhaps surprisingly, even training a general-domain language model this way outperforms baselines pretrained in-domain. 
@@ -316,12 +316,24 @@ The individual pipeline steps can be run separately or reused to save compute ti
 If you are using our code or data, please cite [our paper](https://arxiv.org/abs/2202.06671):
 
 ```bibtex
-@article{Ostendorff2022scincl,
-  title={Neighborhood Contrastive Learning for Scientific Document Representations with Citation Embeddings},
-  author={Ostendorff, Malte and Rethmeier, Nils and Augenstein, Isabelle and Gipp, Bela and Rehm, Georg},
-  journal={arXiv preprint arXiv:2202.06671},
-  year={2022}
+@inproceedings{Ostendorff2022scincl,
+  author = {Malte Ostendorff and Nils Rethmeier and Isabelle Augenstein
+                  and Bela Gipp and Georg Rehm},
+  title = {{Neighborhood Contrastive Learning for Scientific Document
+                  Representations with Citation Embeddings}},
+  booktitle = {{The 2022 Conference on Empirical Methods in Natural
+                  Language Processing (EMNLP 2022)}},
+  year = 2022,
+  editor = {},
+  keywords = {aip},
+  publisher = {Association for Computational Linguistics},
+  address = {Abu Dhabi},
+  month = {December},
+  doi = {10.48550/arXiv.2202.06671},
+  note = {7-11 December 2022. Accepted for publication.},
+  pages = {}
 }
+
 ```
 
 ## License
