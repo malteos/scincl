@@ -1,6 +1,6 @@
 # SciNCL: Neighborhood Contrastive Learning for Scientific Document Representations with Citation Embeddings
 	
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/neighborhood-contrastive-learning-for-1/representation-learning-on-scidocs)](https://paperswithcode.com/sota/representation-learning-on-scidocs?p=neighborhood-contrastive-learning-for-1)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/neighborhood-contrastive-learning-for-1/representation-learning-on-scidocs)](https://paperswithcode.com/sota/representation-learning-on-scidocs?p=neighborhood-contrastive-learning-for-1) [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/malteos/emnlp2022-papers)
 
 Supplemental materials for [Neighborhood Contrastive Learning for Scientific Document Representations with Citation Embeddings (EMNLP2022 paper, PDF available on ArXiv)](http://arxiv.org/abs/2202.06671).
 Trained models and datasets are available as [GitHub release files](https://github.com/malteos/scincl/releases) and on [Huggingface model hub](https://huggingface.co/malteos/scincl).
